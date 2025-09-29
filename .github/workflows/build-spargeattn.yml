@@ -115,7 +115,14 @@ jobs:
           {
             if ($Env:TORCH_MINOR_VERSION -gt "5")
             {
-              $Env:CIBW_BUILD = "{cp39-win_amd64,cp310-win_amd64,cp311-win_amd64,cp312-win_amd64,cp313-win_amd64}"
+              if ($Env:TORCH_MINOR_VERSION -gt "9")
+              {
+                $Env:CIBW_BUILD = "{cp310-win_amd64,cp311-win_amd64,cp312-win_amd64,cp313-win_amd64}"
+              }
+              else
+              {
+                $Env:CIBW_BUILD = "{cp39-win_amd64,cp310-win_amd64,cp311-win_amd64,cp312-win_amd64,cp313-win_amd64}"
+              }
             }
             else
             {
