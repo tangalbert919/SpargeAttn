@@ -113,9 +113,9 @@ jobs:
           }
           else
           {
-            if ($Env:TORCH_MINOR_VERSION -gt "5")
+            if ($Env:TORCH_MINOR_VERSION -as [int] -gt 5)
             {
-              if ($Env:TORCH_MINOR_VERSION -gt "9")
+              if ($Env:TORCH_MINOR_VERSION -as [int] -gt 9)
               {
                 $Env:CIBW_BUILD = "{cp310-win_amd64,cp311-win_amd64,cp312-win_amd64,cp313-win_amd64}"
               }
